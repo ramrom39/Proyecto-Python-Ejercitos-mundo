@@ -3,31 +3,32 @@ from typing import List, Dict
 
 ejercitos:List[Dict[str, str|int|float|bool]]=[]
 
+datos:str=""
 
 ejercitos= [
     {
-        "Pais": "España",
+        "Pais":"España",
         "Continente": "Europa",
         "Poblacion": 47000000,
         "Gasto militar": 20000.5,
         "En conflicto": False
     },
     {
-        "Pais": "Estados Unidos",
+        "Pais":"Estados Unidos",
         "Continente": "América",
         "Poblacion": 331000000,
         "Gasto militar": 800000.0,
         "En conflicto": False
     },
     {
-        "Pais": "China",
+        "Pais":"China",
         "Continente": "Asia",
         "Poblacion": 1440000000,
         "Gasto militar": 250000.0,
         "En conflicto": False
     },
     {
-        "Pais": "Ucrania",
+        "Pais":"Ucrania",
         "Continente": "Europa",
         "Poblacion": 41000000,
         "Gasto militar": 15000.0,
@@ -58,10 +59,11 @@ def menu():
             editar_ejercito(ejercitos)
         elif opcion == '4':
             nombre = input("Introduce el nombre del país a borrar: ")
-            # borrar_ejercito(ejercitos, nombre)
+            borrar_ejercito(ejercitos, nombre)
         elif opcion == '5':
-            print("Completar")
-            # volcar_datos(ejercitos, "backup.json")
+            datos=volcar_datos(ejercitos).strip()
+            print("Datos volcados:")
+            print(datos.strip())
         elif opcion == '6':
             print("Completar")
             # ejercitos.extend(recuperar_datos("backup.json"))

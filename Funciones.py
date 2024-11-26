@@ -63,3 +63,22 @@ def formatear_ejercito(ejercito: Dict[str, str | int | float | bool]) -> str:
             f"En conflicto: {ejercito["En conflicto"]}\n")
 
 
+def borrar_ejercito(ejercitos: List[Dict[str, str | int | float | bool]],nombre:str)->None:
+    for ejercito in ejercitos:
+        if ejercito["Pais"].lower()==nombre.lower():
+            ejercitos.remove(ejercito)
+            print(f"Ejercito de {nombre} eliminado")
+            return
+    print("Ejercito no encontrado")
+
+def volcar_datos(ejercitos: List[Dict[str, str | int | float | bool]])->str:
+    datos=""
+    for ejercito in ejercitos:
+        datos+=(f"{ejercito["Pais"]},"
+                f"{ejercito["Continente"]},"
+                f"{ejercito["Poblacion"]},"
+                f"{ejercito["Gasto militar"]},"
+                f"{ejercito["En conflicto"]}\n")
+
+    return datos
+

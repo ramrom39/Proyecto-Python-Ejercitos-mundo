@@ -46,29 +46,34 @@ def menu():
         print("5) Volcar los datos en un backup")
         print("6) Recuperar los datos")
         print("7) Mostrar el ejército con mayor gasto militar")
+        print("8) Mostrar ejercitos ordenados por gasto militar")
+        print("9) Mostrar todos los ejercitos")
         print("0) Salir")
 
         opcion = input("Selecciona una opción: ")
 
         if opcion == '1':
-            nombre = input("Introduce el nombre del país: ")
+            nombre = input("Introduce el nombre del país: ").strip()
             buscar_por_nombre(ejercitos, nombre)
         elif opcion == '2':
             añadir_ejercito(ejercitos)
         elif opcion == '3':
             editar_ejercito(ejercitos)
         elif opcion == '4':
-            nombre = input("Introduce el nombre del país a borrar: ")
+            nombre = input("Introduce el nombre del país a borrar: ").strip()
             borrar_ejercito(ejercitos, nombre)
         elif opcion == '5':
             datos=volcar_datos(ejercitos).strip()
             print("Datos volcados:")
-            print(datos.strip())
         elif opcion == '6':
             ejercitos.extend(recuperar_datos(datos))
             print("Backup recuperada")
-        elif opcion == '7':
+        elif opcion=='7':
+            mostrar_mayor_gasto_militar(ejercitos)
+        elif opcion == '8':
             ordenar_por_gasto(ejercitos)
+        elif opcion=='9':
+            listar_ejercitos(ejercitos)
         elif opcion == '0':
             print("Saliendo del programa...")
             break

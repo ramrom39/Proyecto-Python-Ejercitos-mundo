@@ -106,3 +106,23 @@ def ordenar_por_gasto(ejercitos: List[Dict[str, str | int | float | bool]])->Non
     ejercitos_orden=sorted(ejercitos, key=lambda x:x["Gasto militar"],reverse=True)
     for ejercito in ejercitos_orden:
         print(formatear_ejercito(ejercito))
+
+def mostrar_mayor_gasto_militar(ejercitos: List[Dict[str, str | int | float | bool]]) -> None:
+    if not ejercitos:
+        print("No hay ejércitos registrados.")
+        return
+
+    max_gasto_ejercito = max(ejercitos, key=lambda x: x["Gasto militar"])
+    print("\n--- Ejército con mayor gasto militar ---")
+    print(formatear_ejercito(max_gasto_ejercito))
+
+def listar_ejercitos(ejercitos: List[Dict[str, str | int | float | bool]]) -> None:
+
+    if not ejercitos:
+        print("No hay ejércitos registrados.")
+        return
+
+    print("\n----- Listado de Ejércitos -----")
+    for ejercito in ejercitos:
+        print(formatear_ejercito(ejercito))
+        print("-" * 30)

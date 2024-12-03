@@ -1,5 +1,8 @@
 from typing import List, Dict
 
+from App import ejercitos
+
+
 def buscar_por_nombre(ejercitos:List[Dict[str, str|int|float|bool]],nombre:str)->None:
     for ejercito in ejercitos:
         if ejercito["Pais"].lower()==nombre.lower():
@@ -82,3 +85,24 @@ def volcar_datos(ejercitos: List[Dict[str, str | int | float | bool]])->str:
 
     return datos
 
+
+def recuperar_datos(datos: str) -> List[Dict[str, str | int | float | bool]]:
+    ejercitos = []
+    lineas = datos.strip().split("\n")
+    for linea in lineas:
+        datosF = linea.split(",")
+        ejercito = {
+            "Pais": datosF[0],
+            "Continente": datosF[1],
+            "Poblacion": int(datosF[2]),
+            "Gasto militar": float(datosF[3]),
+            "En conflicto": datosF[4].strip().lower() == "true"
+        }
+        ejercitos.append(ejercito)
+    return ejercitos
+
+
+def ordenar_por_gasto(ejercitos: List[Dict[str, str | int | float | bool]])->None:
+    ejercitos_orden=sorted(ejercitos, key=lambda x:x["Gasto militar"],reverse=True)
+    for ejercito in ejercitos_orden:
+        print(formatear_ejercito(ejercito))

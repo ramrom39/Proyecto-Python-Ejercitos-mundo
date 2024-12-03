@@ -65,13 +65,11 @@ def menu():
             print("Datos volcados:")
             print(datos.strip())
         elif opcion == '6':
-            print("Completar")
-            # ejercitos.extend(recuperar_datos("backup.json"))
+            ejercitos.extend(recuperar_datos(datos))
+            print("Backup recuperada")
         elif opcion == '7':
-            print("Completar")
-            # mostrar_mayor_gasto(ejercitos)
+            ordenar_por_gasto(ejercitos)
         elif opcion == '0':
-            print("Completar")
             print("Saliendo del programa...")
             break
         else:
